@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0B2E5B614BD28FA008CE66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B514BD28FA008CE66F /* Foundation.framework */; };
+		C0B2E5BC14BD28FA008CE66F /* ChocolateBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5BB14BD28FA008CE66F /* ChocolateBox.m */; };
+		C0B2E5C414BD28FA008CE66F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5C314BD28FA008CE66F /* SenTestingKit.framework */; };
+		C0B2E5C614BD28FA008CE66F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5C514BD28FA008CE66F /* UIKit.framework */; };
+		C0B2E5C714BD28FA008CE66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B514BD28FA008CE66F /* Foundation.framework */; };
+		C0B2E5CA14BD28FA008CE66F /* libChocolateBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */; };
+		C0B2E5D014BD28FA008CE66F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0B2E5CE14BD28FA008CE66F /* InfoPlist.strings */; };
+		C0B2E5D314BD28FA008CE66F /* ChocolateBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5D214BD28FA008CE66F /* ChocolateBoxTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C0B2E5C814BD28FA008CE66F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0B2E5A914BD28FA008CE66F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0B2E5B114BD28FA008CE66F;
+			remoteInfo = ChocolateBox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChocolateBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0B2E5B514BD28FA008CE66F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C0B2E5B914BD28FA008CE66F /* ChocolateBox-Prefix.pch */ = {isa = PBXFileReference; path = "ChocolateBox-Prefix.pch"; sourceTree = "<group>"; };
+		C0B2E5BA14BD28FA008CE66F /* ChocolateBox.h */ = {isa = PBXFileReference; path = ChocolateBox.h; sourceTree = "<group>"; };
+		C0B2E5BB14BD28FA008CE66F /* ChocolateBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChocolateBox.m; sourceTree = "<group>"; };
+		C0B2E5C214BD28FA008CE66F /* ChocolateBoxTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChocolateBoxTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0B2E5C314BD28FA008CE66F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C0B2E5C514BD28FA008CE66F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C0B2E5CD14BD28FA008CE66F /* ChocolateBoxTests-Info.plist */ = {isa = PBXFileReference; path = "ChocolateBoxTests-Info.plist"; sourceTree = "<group>"; };
+		C0B2E5CF14BD28FA008CE66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C0B2E5D114BD28FA008CE66F /* ChocolateBoxTests.h */ = {isa = PBXFileReference; path = ChocolateBoxTests.h; sourceTree = "<group>"; };
+		C0B2E5D214BD28FA008CE66F /* ChocolateBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChocolateBoxTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C0B2E5AF14BD28FA008CE66F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0B2E5B614BD28FA008CE66F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0B2E5BE14BD28FA008CE66F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0B2E5C414BD28FA008CE66F /* SenTestingKit.framework in Frameworks */,
+				C0B2E5C614BD28FA008CE66F /* UIKit.framework in Frameworks */,
+				C0B2E5C714BD28FA008CE66F /* Foundation.framework in Frameworks */,
+				C0B2E5CA14BD28FA008CE66F /* libChocolateBox.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C0B2E5A714BD28FA008CE66F = {
+			isa = PBXGroup;
+			children = (
+				C0B2E5B714BD28FA008CE66F /* ChocolateBox */,
+				C0B2E5CB14BD28FA008CE66F /* ChocolateBoxTests */,
+				C0B2E5B414BD28FA008CE66F /* Frameworks */,
+				C0B2E5B314BD28FA008CE66F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C0B2E5B314BD28FA008CE66F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */,
+				C0B2E5C214BD28FA008CE66F /* ChocolateBoxTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0B2E5B414BD28FA008CE66F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0B2E5B514BD28FA008CE66F /* Foundation.framework */,
+				C0B2E5C314BD28FA008CE66F /* SenTestingKit.framework */,
+				C0B2E5C514BD28FA008CE66F /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0B2E5B714BD28FA008CE66F /* ChocolateBox */ = {
+			isa = PBXGroup;
+			children = (
+				C0B2E5BA14BD28FA008CE66F /* ChocolateBox.h */,
+				C0B2E5BB14BD28FA008CE66F /* ChocolateBox.m */,
+				C0B2E5B814BD28FA008CE66F /* Supporting Files */,
+			);
+			path = ChocolateBox;
+			sourceTree = "<group>";
+		};
+		C0B2E5B814BD28FA008CE66F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0B2E5B914BD28FA008CE66F /* ChocolateBox-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C0B2E5CB14BD28FA008CE66F /* ChocolateBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				C0B2E5D114BD28FA008CE66F /* ChocolateBoxTests.h */,
+				C0B2E5D214BD28FA008CE66F /* ChocolateBoxTests.m */,
+				C0B2E5CC14BD28FA008CE66F /* Supporting Files */,
+			);
+			path = ChocolateBoxTests;
+			sourceTree = "<group>";
+		};
+		C0B2E5CC14BD28FA008CE66F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0B2E5CD14BD28FA008CE66F /* ChocolateBoxTests-Info.plist */,
+				C0B2E5CE14BD28FA008CE66F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C0B2E5B014BD28FA008CE66F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C0B2E5B114BD28FA008CE66F /* ChocolateBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0B2E5D614BD28FA008CE66F /* Build configuration list for PBXNativeTarget "ChocolateBox" */;
+			buildPhases = (
+				C0B2E5AE14BD28FA008CE66F /* Sources */,
+				C0B2E5AF14BD28FA008CE66F /* Frameworks */,
+				C0B2E5B014BD28FA008CE66F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChocolateBox;
+			productName = ChocolateBox;
+			productReference = C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C0B2E5C114BD28FA008CE66F /* ChocolateBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0B2E5D914BD28FA008CE66F /* Build configuration list for PBXNativeTarget "ChocolateBoxTests" */;
+			buildPhases = (
+				C0B2E5BD14BD28FA008CE66F /* Sources */,
+				C0B2E5BE14BD28FA008CE66F /* Frameworks */,
+				C0B2E5BF14BD28FA008CE66F /* Resources */,
+				C0B2E5C014BD28FA008CE66F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0B2E5C914BD28FA008CE66F /* PBXTargetDependency */,
+			);
+			name = ChocolateBoxTests;
+			productName = ChocolateBoxTests;
+			productReference = C0B2E5C214BD28FA008CE66F /* ChocolateBoxTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0B2E5A914BD28FA008CE66F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C0B2E5AC14BD28FA008CE66F /* Build configuration list for PBXProject "ChocolateBox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C0B2E5A714BD28FA008CE66F;
+			productRefGroup = C0B2E5B314BD28FA008CE66F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0B2E5B114BD28FA008CE66F /* ChocolateBox */,
+				C0B2E5C114BD28FA008CE66F /* ChocolateBoxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C0B2E5BF14BD28FA008CE66F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0B2E5D014BD28FA008CE66F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C0B2E5C014BD28FA008CE66F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C0B2E5AE14BD28FA008CE66F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0B2E5BC14BD28FA008CE66F /* ChocolateBox.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0B2E5BD14BD28FA008CE66F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0B2E5D314BD28FA008CE66F /* ChocolateBoxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0B2E5C914BD28FA008CE66F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0B2E5B114BD28FA008CE66F /* ChocolateBox */;
+			targetProxy = C0B2E5C814BD28FA008CE66F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C0B2E5CE14BD28FA008CE66F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0B2E5CF14BD28FA008CE66F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0B2E5D414BD28FA008CE66F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C0B2E5D514BD28FA008CE66F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0B2E5D714BD28FA008CE66F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ChocolateBox.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChocolateBox/ChocolateBox-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C0B2E5D814BD28FA008CE66F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ChocolateBox.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChocolateBox/ChocolateBox-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C0B2E5DA14BD28FA008CE66F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChocolateBox/ChocolateBox-Prefix.pch";
+				INFOPLIST_FILE = "ChocolateBoxTests/ChocolateBoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C0B2E5DB14BD28FA008CE66F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChocolateBox/ChocolateBox-Prefix.pch";
+				INFOPLIST_FILE = "ChocolateBoxTests/ChocolateBoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0B2E5AC14BD28FA008CE66F /* Build configuration list for PBXProject "ChocolateBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0B2E5D414BD28FA008CE66F /* Debug */,
+				C0B2E5D514BD28FA008CE66F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0B2E5D614BD28FA008CE66F /* Build configuration list for PBXNativeTarget "ChocolateBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0B2E5D714BD28FA008CE66F /* Debug */,
+				C0B2E5D814BD28FA008CE66F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C0B2E5D914BD28FA008CE66F /* Build configuration list for PBXNativeTarget "ChocolateBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0B2E5DA14BD28FA008CE66F /* Debug */,
+				C0B2E5DB14BD28FA008CE66F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0B2E5A914BD28FA008CE66F /* Project object */;
+}
