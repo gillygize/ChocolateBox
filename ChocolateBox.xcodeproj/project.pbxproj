@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0553B8D14BD8A82009FDA59 /* CBMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0553B8A14BD8A74009FDA59 /* CBMachineTests.m */; };
 		C0B2E5B614BD28FA008CE66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B514BD28FA008CE66F /* Foundation.framework */; };
-		C0B2E5BC14BD28FA008CE66F /* ChocolateBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5BB14BD28FA008CE66F /* ChocolateBox.m */; };
+		C0B2E5BC14BD28FA008CE66F /* CBMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5BB14BD28FA008CE66F /* CBMachine.m */; };
 		C0B2E5C414BD28FA008CE66F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5C314BD28FA008CE66F /* SenTestingKit.framework */; };
 		C0B2E5C614BD28FA008CE66F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5C514BD28FA008CE66F /* UIKit.framework */; };
 		C0B2E5C714BD28FA008CE66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B514BD28FA008CE66F /* Foundation.framework */; };
 		C0B2E5CA14BD28FA008CE66F /* libChocolateBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */; };
 		C0B2E5D014BD28FA008CE66F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0B2E5CE14BD28FA008CE66F /* InfoPlist.strings */; };
-		C0B2E5D314BD28FA008CE66F /* ChocolateBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5D214BD28FA008CE66F /* ChocolateBoxTests.m */; };
+		C0B2E5D314BD28FA008CE66F /* CBStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5D214BD28FA008CE66F /* CBStateTests.m */; };
+		C0B2E5DE14BD295E008CE66F /* CBState.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5DC14BD295E008CE66F /* CBState.h */; };
+		C0B2E5DF14BD295E008CE66F /* CBState.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5DD14BD295E008CE66F /* CBState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,18 +31,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C0553B8A14BD8A74009FDA59 /* CBMachineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMachineTests.m; sourceTree = "<group>"; };
 		C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChocolateBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B2E5B514BD28FA008CE66F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C0B2E5B914BD28FA008CE66F /* ChocolateBox-Prefix.pch */ = {isa = PBXFileReference; path = "ChocolateBox-Prefix.pch"; sourceTree = "<group>"; };
-		C0B2E5BA14BD28FA008CE66F /* ChocolateBox.h */ = {isa = PBXFileReference; path = ChocolateBox.h; sourceTree = "<group>"; };
-		C0B2E5BB14BD28FA008CE66F /* ChocolateBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChocolateBox.m; sourceTree = "<group>"; };
+		C0B2E5B914BD28FA008CE66F /* ChocolateBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChocolateBox-Prefix.pch"; sourceTree = "<group>"; };
+		C0B2E5BA14BD28FA008CE66F /* CBMachine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBMachine.h; sourceTree = "<group>"; };
+		C0B2E5BB14BD28FA008CE66F /* CBMachine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBMachine.m; sourceTree = "<group>"; };
 		C0B2E5C214BD28FA008CE66F /* ChocolateBoxTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChocolateBoxTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B2E5C314BD28FA008CE66F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C0B2E5C514BD28FA008CE66F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		C0B2E5CD14BD28FA008CE66F /* ChocolateBoxTests-Info.plist */ = {isa = PBXFileReference; path = "ChocolateBoxTests-Info.plist"; sourceTree = "<group>"; };
+		C0B2E5CD14BD28FA008CE66F /* ChocolateBoxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChocolateBoxTests-Info.plist"; sourceTree = "<group>"; };
 		C0B2E5CF14BD28FA008CE66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C0B2E5D114BD28FA008CE66F /* ChocolateBoxTests.h */ = {isa = PBXFileReference; path = ChocolateBoxTests.h; sourceTree = "<group>"; };
-		C0B2E5D214BD28FA008CE66F /* ChocolateBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChocolateBoxTests.m; sourceTree = "<group>"; };
+		C0B2E5D214BD28FA008CE66F /* CBStateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBStateTests.m; sourceTree = "<group>"; };
+		C0B2E5DC14BD295E008CE66F /* CBState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBState.h; sourceTree = "<group>"; };
+		C0B2E5DD14BD295E008CE66F /* CBState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBState.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +102,10 @@
 		C0B2E5B714BD28FA008CE66F /* ChocolateBox */ = {
 			isa = PBXGroup;
 			children = (
-				C0B2E5BA14BD28FA008CE66F /* ChocolateBox.h */,
-				C0B2E5BB14BD28FA008CE66F /* ChocolateBox.m */,
+				C0B2E5BA14BD28FA008CE66F /* CBMachine.h */,
+				C0B2E5BB14BD28FA008CE66F /* CBMachine.m */,
+				C0B2E5DC14BD295E008CE66F /* CBState.h */,
+				C0B2E5DD14BD295E008CE66F /* CBState.m */,
 				C0B2E5B814BD28FA008CE66F /* Supporting Files */,
 			);
 			path = ChocolateBox;
@@ -115,8 +122,8 @@
 		C0B2E5CB14BD28FA008CE66F /* ChocolateBoxTests */ = {
 			isa = PBXGroup;
 			children = (
-				C0B2E5D114BD28FA008CE66F /* ChocolateBoxTests.h */,
-				C0B2E5D214BD28FA008CE66F /* ChocolateBoxTests.m */,
+				C0553B8A14BD8A74009FDA59 /* CBMachineTests.m */,
+				C0B2E5D214BD28FA008CE66F /* CBStateTests.m */,
 				C0B2E5CC14BD28FA008CE66F /* Supporting Files */,
 			);
 			path = ChocolateBoxTests;
@@ -138,6 +145,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B2E5DE14BD295E008CE66F /* CBState.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0B2E5BC14BD28FA008CE66F /* ChocolateBox.m in Sources */,
+				C0B2E5BC14BD28FA008CE66F /* CBMachine.m in Sources */,
+				C0B2E5DF14BD295E008CE66F /* CBState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0B2E5D314BD28FA008CE66F /* ChocolateBoxTests.m in Sources */,
+				C0B2E5D314BD28FA008CE66F /* CBStateTests.m in Sources */,
+				C0553B8D14BD8A82009FDA59 /* CBMachineTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +395,7 @@
 				C0B2E5D814BD28FA008CE66F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0B2E5D914BD28FA008CE66F /* Build configuration list for PBXNativeTarget "ChocolateBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -393,6 +404,7 @@
 				C0B2E5DB14BD28FA008CE66F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
