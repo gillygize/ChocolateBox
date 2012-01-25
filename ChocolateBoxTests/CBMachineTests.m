@@ -51,34 +51,50 @@
   STAssertFalse([machine hasState:@"firstState"], @"Machine did not not remove its state");
 }
 
-- (void)testMachineShouldBeAbleToSetInitialState
+- (void)testMachineShouldSetTheInitialStateToTheFirstStateWhichHasBeenAdded
 {
   CBMachine *machine = [CBMachine machine];
-  [machine addState:@"firstState" enter:nil exit:nil];
-  [machine setInitialState:@"firstState"];
+  [machine addState:@"firstState"
+    enter:nil
+    exit:nil];
   
-  STAssertEqualObjects(machine.currentState, @"firstState", @"Machine did not set its initial state");  
+  STAssertEqualObjects(machine.currentState, @"firstState", @"Machine did not set its initial state to the first state");  
 }
 
-- (void)testMachineShouldBeAbleToTransition {
+- (void)testMachineShouldAllowTheInitialStateToBeChangedIfItHasNotBeenEntered
+{
+  CBMachine *machine = [CBMachine machine];
+  [machine addState:@"firstState"
+    enter:nil
+    exit:nil];
+  [machine addState:@"secondState"
+    enter:nil
+    exit:nil];
+    
+  STAssertNoThrow([machine setInitialState:@"secondState"], @"Machine allowed setting this state");
+  STAssertEqualObjects(machine.currentState, @"secondState", @"Machine did not change its initial state");  
+}
+
+- (void)testMachineShouldEnterTheInitialState
+{
+  CBMachine *machine = [CBMachine machine];
+  
+  [machine addState:@"firstState"
+    enter:^{
+      STAssertTrue(YES, @"Machine allowed the first state to be entered");
+    }
+    exit:nil];
+    
+  [machine enterInitialState];
+}
+
+- (void)testMachineShouldNotAllowTheInitialStateToBeSetAfterItIsEntered {
   CBMachine *machine = [CBMachine machine];
   [machine addState:@"firstState" enter:nil exit:nil];
   [machine addState:@"secondState" enter:nil exit:nil];
-  [machine setInitialState:@"firstState"];
+  [machine enterInitialState];
   
-  STAssertEqualObjects(machine.currentState, @"firstState", @"Machine did not start in the first state");
-  
-  [machine transitionToState:@"secondState"];
-  
-  STAssertEqualObjects(machine.currentState, @"secondState", @"Machine did not transition");
-}
-
-- (void)testMachineShouldFailToTransitionIfInitialStateIsNotSet {
-  CBMachine *machine = [CBMachine machine];
-  [machine addState:@"firstState" enter:nil exit:nil];
-  [machine addState:@"secondState" enter:nil exit:nil];
-  
-  STAssertThrows([machine transitionToState:@"secondState"], @"Machine did not throw an exception when transitioning without an initial state");  
+  STAssertThrows([machine setInitialState:@"secondState"], @"Machine allowed the initial state to be set after it is entered");
 }
 
 - (void)testMachineShouldSuccessfullyCallTheTransitionBlock {
@@ -87,6 +103,19 @@
   [machine addState:@"secondState" enter:^{ STAssertTrue(YES, @"Machine did enter transition"); } exit:nil];
   [machine setInitialState:@"firstState"];
   [machine transitionToState:@"secondState"]; 
+}
+
+- (void)testMachineShouldEnterTheInitialStateAtTheFirstTransitionIfItHasNotDoneSo {
+  CBMachine *machine = [CBMachine machine];
+  
+  [machine addState:@"firstState"
+    enter:^{
+      STAssertTrue(YES, @"Machine successfully entered the first state");
+    }
+    exit:nil];
+    
+  [machine addState:@"secondState" enter:nil exit:nil];
+  [machine transitionToState:@"secondState"];
 }
 
 - (void)testMachineShouldInvalidateTransitions {
@@ -111,6 +140,17 @@
   [machine revalidateTransitionFromState:@"firstState" toState:@"secondState"];
   
   STAssertNoThrow([machine transitionToState:@"secondState"], @"Message did not revalidate the transition");
+}
+
+- (void)testMachineShouldDoNothingForTransitionToItself {
+  CBMachine *machine = [CBMachine machine];
+  [machine addState:@"firstState"
+    enter:nil
+    exit:^(NSString *nextState) {
+      STAssertFalse(YES, @"Machine did not do nothing for a transition to itself");
+    }];
+  [machine setInitialState:@"firstState"];
+  [machine transitionToState:@"firstState"];
 }
 
 - (void)testMachineShouldAllowReplacementOfStates {

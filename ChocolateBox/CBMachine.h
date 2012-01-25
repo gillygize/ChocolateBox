@@ -7,21 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ChocolateBoxProtocol.h"
 
-@interface CBMachine : NSObject
+@interface CBMachine : NSObject <ChocolateBoxProtocol> {
+  NSMutableDictionary *_stateDictionary;
+  NSString *_currentState;
+  BOOL _hasEnteredInitialState;
+}
 
 @property (nonatomic, assign, readonly) NSString *currentState;
 @property (nonatomic, readonly) NSSet *states;
 
 + (CBMachine *)machine;
-
-- (void)setInitialState:(NSString *)initialState;
-- (BOOL)hasState:(NSString *)state;
-- (void)addState:(NSString *)state enter:(void(^)(void))enter exit:(void(^)(NSString *previousState))exit;
-- (void)removeState:(NSString *)state;
-- (void)replaceEnter:(void(^)(void))enter exit:(void(^)(NSString *previousState))exit forState:(NSString *)state;
-- (void)transitionToState:(NSString *)state;
-- (void)invalidateTransitionFromState:(NSString *)state toState:(NSString *)state;
-- (void)revalidateTransitionFromState:(NSString *)state toState:(NSString *)state;
 
 @end

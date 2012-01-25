@@ -11,7 +11,7 @@
 @interface CBState : NSObject
 
 @property (nonatomic, copy) void(^enter)();
-@property (nonatomic, copy) void(^exit)(NSString *previousState);
+@property (nonatomic, copy) void(^exit)(NSString *nextState);
 
 - (id)initWithEnter:(void(^)(void))enter exit:(void(^)(NSString *nextState))exit;
 

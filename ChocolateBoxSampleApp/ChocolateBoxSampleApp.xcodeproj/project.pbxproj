@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C089E3D214BEF87500AFF967 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C089E3D114BEF87500AFF967 /* UIKit.framework */; };
+		C089E3D414BEF87500AFF967 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C089E3D314BEF87500AFF967 /* Foundation.framework */; };
+		C089E3D614BEF87500AFF967 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C089E3D514BEF87500AFF967 /* CoreGraphics.framework */; };
+		C089E3DC14BEF87500AFF967 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C089E3DA14BEF87500AFF967 /* InfoPlist.strings */; };
+		C089E3DE14BEF87500AFF967 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C089E3DD14BEF87500AFF967 /* main.m */; };
+		C089E3E214BEF87500AFF967 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C089E3E114BEF87500AFF967 /* AppDelegate.m */; };
+		C089E3E514BEF87500AFF967 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C089E3E414BEF87500AFF967 /* ViewController.m */; };
+		C089E3E814BEF87500AFF967 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = C089E3E614BEF87500AFF967 /* ViewController_iPhone.xib */; };
+		C089E3EB14BEF87500AFF967 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C089E3E914BEF87500AFF967 /* ViewController_iPad.xib */; };
+		C089E3F414BEF8BC00AFF967 /* libChocolateBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C089E3F314BEF8BC00AFF967 /* libChocolateBox.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C089E3CD14BEF87500AFF967 /* ChocolateBoxSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChocolateBoxSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C089E3D114BEF87500AFF967 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C089E3D314BEF87500AFF967 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C089E3D514BEF87500AFF967 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C089E3D914BEF87500AFF967 /* ChocolateBoxSampleApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChocolateBoxSampleApp-Info.plist"; sourceTree = "<group>"; };
+		C089E3DB14BEF87500AFF967 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C089E3DD14BEF87500AFF967 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C089E3DF14BEF87500AFF967 /* ChocolateBoxSampleApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChocolateBoxSampleApp-Prefix.pch"; sourceTree = "<group>"; };
+		C089E3E014BEF87500AFF967 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C089E3E114BEF87500AFF967 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C089E3E314BEF87500AFF967 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C089E3E414BEF87500AFF967 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C089E3E714BEF87500AFF967 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		C089E3EA14BEF87500AFF967 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		C089E3F314BEF8BC00AFF967 /* libChocolateBox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChocolateBox.a; path = "../build/Release-iphoneos/libChocolateBox.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C089E3CA14BEF87500AFF967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089E3F414BEF8BC00AFF967 /* libChocolateBox.a in Frameworks */,
+				C089E3D214BEF87500AFF967 /* UIKit.framework in Frameworks */,
+				C089E3D414BEF87500AFF967 /* Foundation.framework in Frameworks */,
+				C089E3D614BEF87500AFF967 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C089E3C214BEF87500AFF967 = {
+			isa = PBXGroup;
+			children = (
+				C089E3D714BEF87500AFF967 /* ChocolateBoxSampleApp */,
+				C089E3D014BEF87500AFF967 /* Frameworks */,
+				C089E3CE14BEF87500AFF967 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C089E3CE14BEF87500AFF967 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C089E3CD14BEF87500AFF967 /* ChocolateBoxSampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C089E3D014BEF87500AFF967 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C089E3F314BEF8BC00AFF967 /* libChocolateBox.a */,
+				C089E3D114BEF87500AFF967 /* UIKit.framework */,
+				C089E3D314BEF87500AFF967 /* Foundation.framework */,
+				C089E3D514BEF87500AFF967 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C089E3D714BEF87500AFF967 /* ChocolateBoxSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				C089E3E014BEF87500AFF967 /* AppDelegate.h */,
+				C089E3E114BEF87500AFF967 /* AppDelegate.m */,
+				C089E3E314BEF87500AFF967 /* ViewController.h */,
+				C089E3E414BEF87500AFF967 /* ViewController.m */,
+				C089E3E614BEF87500AFF967 /* ViewController_iPhone.xib */,
+				C089E3E914BEF87500AFF967 /* ViewController_iPad.xib */,
+				C089E3D814BEF87500AFF967 /* Supporting Files */,
+			);
+			path = ChocolateBoxSampleApp;
+			sourceTree = "<group>";
+		};
+		C089E3D814BEF87500AFF967 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C089E3D914BEF87500AFF967 /* ChocolateBoxSampleApp-Info.plist */,
+				C089E3DA14BEF87500AFF967 /* InfoPlist.strings */,
+				C089E3DD14BEF87500AFF967 /* main.m */,
+				C089E3DF14BEF87500AFF967 /* ChocolateBoxSampleApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C089E3CC14BEF87500AFF967 /* ChocolateBoxSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C089E3EE14BEF87500AFF967 /* Build configuration list for PBXNativeTarget "ChocolateBoxSampleApp" */;
+			buildPhases = (
+				C089E3C914BEF87500AFF967 /* Sources */,
+				C089E3CA14BEF87500AFF967 /* Frameworks */,
+				C089E3CB14BEF87500AFF967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChocolateBoxSampleApp;
+			productName = ChocolateBoxSampleApp;
+			productReference = C089E3CD14BEF87500AFF967 /* ChocolateBoxSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C089E3C414BEF87500AFF967 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C089E3C714BEF87500AFF967 /* Build configuration list for PBXProject "ChocolateBoxSampleApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C089E3C214BEF87500AFF967;
+			productRefGroup = C089E3CE14BEF87500AFF967 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C089E3CC14BEF87500AFF967 /* ChocolateBoxSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C089E3CB14BEF87500AFF967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089E3DC14BEF87500AFF967 /* InfoPlist.strings in Resources */,
+				C089E3E814BEF87500AFF967 /* ViewController_iPhone.xib in Resources */,
+				C089E3EB14BEF87500AFF967 /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C089E3C914BEF87500AFF967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089E3DE14BEF87500AFF967 /* main.m in Sources */,
+				C089E3E214BEF87500AFF967 /* AppDelegate.m in Sources */,
+				C089E3E514BEF87500AFF967 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C089E3DA14BEF87500AFF967 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C089E3DB14BEF87500AFF967 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C089E3E614BEF87500AFF967 /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C089E3E714BEF87500AFF967 /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		C089E3E914BEF87500AFF967 /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C089E3EA14BEF87500AFF967 /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C089E3EC14BEF87500AFF967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C089E3ED14BEF87500AFF967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C089E3EF14BEF87500AFF967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C089E3F014BEF87500AFF967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C089E3C714BEF87500AFF967 /* Build configuration list for PBXProject "ChocolateBoxSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C089E3EC14BEF87500AFF967 /* Debug */,
+				C089E3ED14BEF87500AFF967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C089E3EE14BEF87500AFF967 /* Build configuration list for PBXNativeTarget "ChocolateBoxSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C089E3EF14BEF87500AFF967 /* Debug */,
+				C089E3F014BEF87500AFF967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C089E3C414BEF87500AFF967 /* Project object */;
+}
