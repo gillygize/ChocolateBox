@@ -10,14 +10,20 @@
 #import "ChocolateBoxProtocol.h"
 
 @interface CBMachine : NSObject <ChocolateBoxProtocol> {
+  NSMutableDictionary *_machineDictionary;
   NSMutableDictionary *_stateDictionary;
   NSString *_currentState;
+  id<ChocolateBoxProtocol> _supermachine;
   BOOL _hasEnteredInitialState;
+  NSString *_name;
 }
 
 @property (nonatomic, assign, readonly) NSString *currentState;
+@property (nonatomic, assign) id<ChocolateBoxProtocol> supermachine;
+@property (nonatomic, retain) NSString *name;
 @property (nonatomic, readonly) NSSet *states;
 
-+ (CBMachine *)machine;
++ (id<ChocolateBoxProtocol>)machineWithName:(NSString*)name;
+- (id)initWithName:(NSString*)name;
 
 @end

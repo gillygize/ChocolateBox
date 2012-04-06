@@ -12,26 +12,70 @@
 @implementation CBMachine
 
 @synthesize currentState = _currentState;
+@synthesize supermachine = _supermachine;
+@synthesize name = _name;
 @dynamic states;
 
-+ (CBMachine *)machine {
-  return [[[CBMachine alloc] init] autorelease];
-}
-
-- (id)init {
-    self = [super init];
-    if (self) {
-      _stateDictionary = [[NSMutableDictionary alloc] initWithCapacity:8];
-      _hasEnteredInitialState = NO;
-    }
+- (id)initWithName:(NSString*)name {
+  self = [super init];
+  if (self) {
+    _machineDictionary = [[NSMutableDictionary alloc] initWithCapacity:8];
+    _stateDictionary = [[NSMutableDictionary alloc] initWithCapacity:8];
+    _hasEnteredInitialState = NO;
     
-    return self;
+    NSAssert(name != nil, @"name cannot be nil");
+    
+    _name = [name retain];
+  }
+    
+  return self;
 }
 
 - (void)dealloc {
+  [_machineDictionary release];
   [_stateDictionary release];
+  [_name release];
   
   [super dealloc];
+}
+
++ (id<ChocolateBoxProtocol>)machineWithName:(NSString*)name {
+  return [[[CBMachine alloc] initWithName:name] autorelease];
+}
+
+- (id<ChocolateBoxProtocol>)supermachine {
+  return _supermachine;
+}
+
+- (void)setSupermachine:(id<ChocolateBoxProtocol>)supermachine {
+  _supermachine = supermachine;
+}
+
+- (id<ChocolateBoxProtocol>)submachineWithName:(NSString *)name {
+  return [_machineDictionary objectForKey:name];
+}
+
+- (id<ChocolateBoxProtocol>)addSubmachineWithName:(NSString*)name {
+  id<ChocolateBoxProtocol> machine = [CBMachine machineWithName:name];
+  [machine setSupermachine:self];
+  
+  [_machineDictionary setObject:machine forKey:[machine name]];
+  
+  return machine;
+}
+
+- (void)removeFromSupermachine {
+  [_supermachine removeSubmachineWithName:[self name]];
+}
+
+- (BOOL)containsSubmachineWithName:(NSString*)name {
+  return ([_machineDictionary objectForKey:name] != nil);
+}
+
+- (void)removeSubmachineWithName:(NSString*)name {
+  id<ChocolateBoxProtocol> submachine = [_machineDictionary objectForKey:name];
+  [submachine setSupermachine:nil];
+  [_machineDictionary removeObjectForKey:name];
 }
 
 - (NSSet *)states {

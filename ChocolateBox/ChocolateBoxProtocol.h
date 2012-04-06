@@ -10,6 +10,15 @@
 
 @protocol ChocolateBoxProtocol <NSObject>
 
+- (id<ChocolateBoxProtocol>)supermachine;
+- (void)setSupermachine:(id<ChocolateBoxProtocol>)supermachine;
+- (id<ChocolateBoxProtocol>)submachineWithName:(NSString*)name;
+- (id<ChocolateBoxProtocol>)addSubmachineWithName:(NSString*)name;
+- (void)removeFromSupermachine;
+- (BOOL)containsSubmachineWithName:(NSString*)name;
+- (void)removeSubmachineWithName:(NSString*)name;
+- (NSString*)name;
+
 - (void)setInitialState:(NSString *)initialState;
 - (void)enterInitialState;
 - (NSString*)currentState;

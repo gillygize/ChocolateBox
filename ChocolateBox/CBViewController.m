@@ -14,7 +14,7 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-      machine = [[CBMachine alloc] init];
+      machine = [[CBMachine alloc] initWithName:NSStringFromClass([self class])];
   }
   return self;
 }
@@ -22,6 +22,38 @@
 - (void)dealloc {
   [machine release];
   [super dealloc];
+}
+
+- (id<ChocolateBoxProtocol>)supermachine {
+  return [machine supermachine];
+}
+
+- (void)setSupermachine:(id<ChocolateBoxProtocol>)supermachine {
+  [machine setSupermachine:supermachine];
+}
+
+- (id<ChocolateBoxProtocol>)submachineWithName:(NSString*)name {
+  return [machine submachineWithName:name];
+}
+
+- (id<ChocolateBoxProtocol>)addSubmachineWithName:(NSString*)name {
+  return [machine addSubmachineWithName:name];
+}
+
+- (void)removeFromSupermachine {
+  return [machine removeFromSupermachine];
+}
+
+- (BOOL)containsSubmachineWithName:(NSString*)name {
+  return [machine containsSubmachineWithName:name];
+}
+
+- (void)removeSubmachineWithName:(NSString*)name {
+  [machine removeSubmachineWithName:name];
+}
+
+- (NSString*)name {
+  return [machine name];
 }
 
 - (void)setInitialState:(NSString *)initialState {
