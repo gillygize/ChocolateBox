@@ -10,14 +10,16 @@
 
 @protocol ChocolateBoxProtocol <NSObject>
 
+@optional
+
 - (id<ChocolateBoxProtocol>)supermachine;
 - (void)setSupermachine:(id<ChocolateBoxProtocol>)supermachine;
-- (id<ChocolateBoxProtocol>)submachineWithName:(NSString*)name;
-- (id<ChocolateBoxProtocol>)addSubmachineWithName:(NSString*)name;
+- (id<ChocolateBoxProtocol>)submachineWithIdentifier:(id)identifier;
+- (BOOL)addSubmachine:(id<ChocolateBoxProtocol>)identifier;
 - (void)removeFromSupermachine;
-- (BOOL)containsSubmachineWithName:(NSString*)name;
-- (void)removeSubmachineWithName:(NSString*)name;
-- (NSString*)name;
+- (BOOL)containsSubmachine:(id)identifer;
+- (void)removeSubmachine:(id)identifier;
+- (id)machineIdentifier;
 
 - (void)setInitialState:(NSString *)initialState;
 - (void)enterInitialState;
@@ -30,4 +32,9 @@
 - (void)invalidateTransitionFromState:(NSString *)fromState toState:(NSString *)toState;
 - (void)revalidateTransitionFromState:(NSString *)fromState toState:(NSString *)toState;
 
+@end
+
+@protocol ChocolateBoxUIProtocol <ChocolateBoxProtocol>
+@optional
+- (void)transitionToState:(NSString *)state animated:(BOOL)animated duration:(NSTimeInterval)duration;
 @end

@@ -10,8 +10,6 @@
 		C00CFD9B14BEEC43008702EB /* ChocolateBoxProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9A14BEEC43008702EB /* ChocolateBoxProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C00CFD9F14BEECA9008702EB /* CBViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9D14BEECA9008702EB /* CBViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C00CFDA014BEECA9008702EB /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CFD9E14BEECA9008702EB /* CBViewController.m */; };
-		C00CFDA314BEEE72008702EB /* CBMachine+UIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFDA114BEEE72008702EB /* CBMachine+UIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C00CFDA414BEEE72008702EB /* CBMachine+UIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CFDA214BEEE72008702EB /* CBMachine+UIKit.m */; };
 		C00CFDA614BEEEFB008702EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00CFDA514BEEEFB008702EB /* UIKit.framework */; };
 		C022B96A14BEFE740081ECD3 /* CBMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5BA14BD28FA008CE66F /* CBMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C022B96D14BF06580081ECD3 /* libChocolateBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */; };
@@ -41,8 +39,6 @@
 		C00CFD9A14BEEC43008702EB /* ChocolateBoxProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocolateBoxProtocol.h; sourceTree = "<group>"; };
 		C00CFD9D14BEECA9008702EB /* CBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBViewController.h; sourceTree = "<group>"; };
 		C00CFD9E14BEECA9008702EB /* CBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBViewController.m; sourceTree = "<group>"; };
-		C00CFDA114BEEE72008702EB /* CBMachine+UIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBMachine+UIKit.h"; sourceTree = "<group>"; };
-		C00CFDA214BEEE72008702EB /* CBMachine+UIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBMachine+UIKit.m"; sourceTree = "<group>"; };
 		C00CFDA514BEEEFB008702EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C0553B8A14BD8A74009FDA59 /* CBMachineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMachineTests.m; sourceTree = "<group>"; };
 		C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChocolateBox.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,8 +116,6 @@
 				C00CFD9E14BEECA9008702EB /* CBViewController.m */,
 				C0B2E5BA14BD28FA008CE66F /* CBMachine.h */,
 				C0B2E5BB14BD28FA008CE66F /* CBMachine.m */,
-				C00CFDA114BEEE72008702EB /* CBMachine+UIKit.h */,
-				C00CFDA214BEEE72008702EB /* CBMachine+UIKit.m */,
 				C0B2E5DC14BD295E008CE66F /* CBState.h */,
 				C0B2E5DD14BD295E008CE66F /* CBState.m */,
 				C0B2E5B814BD28FA008CE66F /* Supporting Files */,
@@ -166,7 +160,6 @@
 				C0B2E5DE14BD295E008CE66F /* CBState.h in Headers */,
 				C00CFD9B14BEEC43008702EB /* ChocolateBoxProtocol.h in Headers */,
 				C00CFD9F14BEECA9008702EB /* CBViewController.h in Headers */,
-				C00CFDA314BEEE72008702EB /* CBMachine+UIKit.h in Headers */,
 				C022B96A14BEFE740081ECD3 /* CBMachine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +264,6 @@
 				C0B2E5BC14BD28FA008CE66F /* CBMachine.m in Sources */,
 				C0B2E5DF14BD295E008CE66F /* CBState.m in Sources */,
 				C00CFDA014BEECA9008702EB /* CBViewController.m in Sources */,
-				C00CFDA414BEEE72008702EB /* CBMachine+UIKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

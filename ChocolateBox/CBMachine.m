@@ -9,23 +9,36 @@
 #import "CBMachine.h"
 #import "CBState.h"
 
+@interface CBMachine ()
+
+@property (nonatomic, retain) NSMutableDictionary *machineDictionary;
+@property (nonatomic, retain) NSMutableDictionary *stateDictionary;
+@property BOOL hasEnteredInitialState;
+
+@end
+
 @implementation CBMachine
 
 @synthesize currentState = _currentState;
 @synthesize supermachine = _supermachine;
-@synthesize name = _name;
+@synthesize machineIdentifier = _machineIdentifier;
+
+@synthesize machineDictionary = _machineDictionary;
+@synthesize stateDictionary = _stateDictionary;
+@synthesize hasEnteredInitialState = _hasEnteredInitialState;
+
 @dynamic states;
 
-- (id)initWithName:(NSString*)name {
+- (id)initWithIdentifier:(id)identifier {
   self = [super init];
   if (self) {
     _machineDictionary = [[NSMutableDictionary alloc] initWithCapacity:8];
     _stateDictionary = [[NSMutableDictionary alloc] initWithCapacity:8];
     _hasEnteredInitialState = NO;
     
-    NSAssert(name != nil, @"name cannot be nil");
+    NSAssert(identifier != nil, @"name cannot be nil");
     
-    _name = [name retain];
+    _machineIdentifier = [identifier retain];
   }
     
   return self;
@@ -34,13 +47,9 @@
 - (void)dealloc {
   [_machineDictionary release];
   [_stateDictionary release];
-  [_name release];
+  [_machineIdentifier release];
   
   [super dealloc];
-}
-
-+ (id<ChocolateBoxProtocol>)machineWithName:(NSString*)name {
-  return [[[CBMachine alloc] initWithName:name] autorelease];
 }
 
 - (id<ChocolateBoxProtocol>)supermachine {
@@ -51,31 +60,50 @@
   _supermachine = supermachine;
 }
 
-- (id<ChocolateBoxProtocol>)submachineWithName:(NSString *)name {
-  return [_machineDictionary objectForKey:name];
+- (id<ChocolateBoxProtocol>)submachineWithIdentifier:(id)identifier {
+  if ([[self machineIdentifier] isEqual:identifier]) {
+    return self;
+  }
+  
+  for (id machineIdentifier in [_machineDictionary allKeys]) {
+    id<ChocolateBoxProtocol>machine = [self.machineDictionary objectForKey:machineIdentifier];
+    id<ChocolateBoxProtocol> submachine = [machine submachineWithIdentifier:identifier];
+    
+    if (submachine != nil) {
+      return submachine;
+    }
+  }
+  
+  return nil;
 }
 
-- (id<ChocolateBoxProtocol>)addSubmachineWithName:(NSString*)name {
-  id<ChocolateBoxProtocol> machine = [CBMachine machineWithName:name];
-  [machine setSupermachine:self];
+- (BOOL)addSubmachine:(id<ChocolateBoxProtocol>)submachine {
+  if (![self containsSubmachine:submachine]) {
+    [submachine setSupermachine:self];
+    [_machineDictionary setObject:submachine forKey:[submachine machineIdentifier]];
+    
+    return YES;
+  }
   
-  [_machineDictionary setObject:machine forKey:[machine name]];
-  
-  return machine;
+  return NO;
 }
 
 - (void)removeFromSupermachine {
-  [_supermachine removeSubmachineWithName:[self name]];
+  [_supermachine removeSubmachine:self];
 }
 
-- (BOOL)containsSubmachineWithName:(NSString*)name {
-  return ([_machineDictionary objectForKey:name] != nil);
+- (BOOL)containsSubmachineWithIdentifier:(NSString*)identifier {
+  return ([self submachineWithIdentifier:identifier] != nil);
 }
 
-- (void)removeSubmachineWithName:(NSString*)name {
-  id<ChocolateBoxProtocol> submachine = [_machineDictionary objectForKey:name];
+- (BOOL)containsSubmachine:(id<ChocolateBoxProtocol>)submachine {
+  return ([self submachineWithIdentifier:[submachine machineIdentifier]] != nil);
+}
+
+- (void)removeSubmachine:(id<ChocolateBoxProtocol>)submachine {  
+  CBMachine *machine = (CBMachine*)[submachine supermachine];
+  [machine.machineDictionary removeObjectForKey:[submachine machineIdentifier]];
   [submachine setSupermachine:nil];
-  [_machineDictionary removeObjectForKey:name];
 }
 
 - (NSSet *)states {
@@ -182,6 +210,37 @@
   NSAssert([_stateDictionary objectForKey:toState], @"Revalidating a transition from a known state");
   
   [fromStateObject invalidateTransitionToState:toState];
+}
+
+@end
+
+
+@implementation CBMachine (UIKit)
+
+- (void)transitionToState:(NSString *)state animated:(BOOL)animated duration:(NSTimeInterval)duration {
+  NSAssert(self.currentState, @"Trying to transition but the current state is nil");
+
+  CBState *currentStateObject = [self.stateDictionary objectForKey:self.currentState];
+  CBState *nextStateObject = [self.stateDictionary objectForKey:state];
+
+  NSAssert(currentStateObject, @"Trying to transition from an unknown state");
+  NSAssert(nextStateObject, @"Trying to transition to an unknown state");
+  
+  NSAssert([currentStateObject canTransitionToState:state], @"Trying to make an invalid transition");
+  
+  if (currentStateObject.exit) {
+    currentStateObject.exit(state);
+  }
+  
+  _currentState = state;
+  
+  if (nextStateObject.enter) {
+    if (animated) {
+      [UIView animateWithDuration:duration animations:nextStateObject.enter];
+    } else {
+      nextStateObject.enter();
+    }
+  }
 }
 
 @end

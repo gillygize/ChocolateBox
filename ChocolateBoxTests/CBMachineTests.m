@@ -18,42 +18,31 @@
 
 @implementation CBMachineTests
 
-- (void)testMachineShouldInitialize
+- (void)testMachineShouldInitializeWithAnIdentifier
 {
-  CBMachine *machine = [[CBMachine alloc] initWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   
   STAssertNotNil(machine, @"The machine is nil");
   STAssertTrue([machine isMemberOfClass:[CBMachine class]], @"The machine is not an member of CBMachine");
-}
-
-- (void)testMachineShouldInitializeWithAName
-{
-  CBMachine *machine = [[CBMachine alloc] initWithName:@"testName"];
+  STAssertEqualObjects([machine machineIdentifier], @"testName", @"The machine did not set the correct name");
   
-  STAssertEqualObjects([machine name], @"testName", @"The machine did not set the correct name");
-}
-
-- (void)testMachineShouldLoadFromItsConvenienceMethod
-{
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  
-  STAssertNotNil(machine, @"The machine is nil");
-  STAssertTrue([machine isMemberOfClass:[CBMachine class]], @"The machine is not an member of CBMachine");
-  STAssertEqualObjects([machine name], @"testName", @"The machine did not set the correct name");
+  [machine release];
 }
 
 - (void)testMachineShouldBeAbleToAddAState
 {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState" enter:nil exit:nil];
   
   STAssertEquals([machine.states count], (NSUInteger) 1, @"Adding a state did not result in one state");
   STAssertTrue([machine hasState:@"firstState"], @"Machine did not have one state");
+
+  [machine release];
 }
 
 - (void)testMachineShouldBeAbleToRemoveAState
 {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState" enter:nil exit:nil];
     
   STAssertTrue([machine hasState:@"firstState"], @"Machine did not have one state");
@@ -61,21 +50,25 @@
   [machine removeState:@"firstState"];
     
   STAssertFalse([machine hasState:@"firstState"], @"Machine did not not remove its state");
+  
+  [machine release];
 }
 
 - (void)testMachineShouldSetTheInitialStateToTheFirstStateWhichHasBeenAdded
 {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState"
     enter:nil
     exit:nil];
   
-  STAssertEqualObjects(machine.currentState, @"firstState", @"Machine did not set its initial state to the first state");  
+  STAssertEqualObjects(machine.currentState, @"firstState", @"Machine did not set its initial state to the first state");
+  
+  [machine release];
 }
 
 - (void)testMachineShouldAllowTheInitialStateToBeChangedIfItHasNotBeenEntered
 {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState"
     enter:nil
     exit:nil];
@@ -89,7 +82,7 @@
 
 - (void)testMachineShouldEnterTheInitialState
 {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   
   [machine addState:@"firstState"
     enter:^{
@@ -98,27 +91,40 @@
     exit:nil];
     
   [machine enterInitialState];
+
+  [machine release];
 }
 
 - (void)testMachineShouldNotAllowTheInitialStateToBeSetAfterItIsEntered {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState" enter:nil exit:nil];
   [machine addState:@"secondState" enter:nil exit:nil];
   [machine enterInitialState];
   
   STAssertThrows([machine setInitialState:@"secondState"], @"Machine allowed the initial state to be set after it is entered");
+  
+  [machine release];
 }
 
 - (void)testMachineShouldSuccessfullyCallTheTransitionBlock {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  [machine addState:@"firstState" enter:nil exit:^(NSString *nextStep){ STAssertEqualObjects(nextStep, @"secondState", @"Machine did not perform exit transition"); }];
-  [machine addState:@"secondState" enter:^{ STAssertTrue(YES, @"Machine did enter transition"); } exit:nil];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  [machine addState:@"firstState"
+    enter:nil
+    exit:^(NSString *nextStep){
+    STAssertEqualObjects(nextStep, @"secondState", @"Machine did not perform exit transition");
+  }];
+  [machine addState:@"secondState" enter:^{
+    STAssertTrue(YES, @"Machine did enter transition");
+    }
+    exit:nil];
   [machine setInitialState:@"firstState"];
-  [machine transitionToState:@"secondState"]; 
+  [machine transitionToState:@"secondState"];
+  
+  [machine release];
 }
 
 - (void)testMachineShouldEnterTheInitialStateAtTheFirstTransitionIfItHasNotDoneSo {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   
   [machine addState:@"firstState"
     enter:^{
@@ -128,20 +134,24 @@
     
   [machine addState:@"secondState" enter:nil exit:nil];
   [machine transitionToState:@"secondState"];
+  
+  [machine release];
 }
 
 - (void)testMachineShouldInvalidateTransitions {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState" enter:nil exit:nil];
   [machine addState:@"secondState" enter:nil exit:nil];
   [machine setInitialState:@"firstState"];
   [machine invalidateTransitionFromState:@"firstState" toState:@"secondState"];
   
   STAssertThrows([machine transitionToState:@"secondState"], @"Message did not invalidate transition");
+
+  [machine release];
 }
 
 - (void)testMachineShouldRevalidateInvalidTransitions {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState" enter:nil exit:nil];
   [machine addState:@"secondState" enter:nil exit:nil];
   [machine setInitialState:@"firstState"];
@@ -152,10 +162,12 @@
   [machine revalidateTransitionFromState:@"firstState" toState:@"secondState"];
   
   STAssertNoThrow([machine transitionToState:@"secondState"], @"Message did not revalidate the transition");
+
+  [machine release];
 }
 
-- (void)testMachineShouldDoNothingForTransitionToItself {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+- (void)testMachineShouldDoNothingForTransitionToItsCurrentState {
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState"
     enter:nil
     exit:^(NSString *nextState) {
@@ -163,10 +175,12 @@
     }];
   [machine setInitialState:@"firstState"];
   [machine transitionToState:@"firstState"];
+
+  [machine release];
 }
 
 - (void)testMachineShouldAllowReplacementOfStates {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
 
   [machine addState:@"firstState"
     enter:nil
@@ -186,68 +200,87 @@
   [machine replaceEnter:nil exit:nil forState:@"secondState"];
   
   [machine transitionToState:@"secondState"];
+  
+  [machine release];
 }
 
 - (void)testMachineShouldAllowAddingSubmachines {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  CBMachine *submachine = [machine addSubmachineWithName:@"testName2"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  CBMachine *submachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];
+  [machine addSubmachine:submachine];
   
   STAssertNotNil(submachine, @"The submachine is nil");
-  STAssertEqualObjects([submachine name], @"testName2", @"The submachine does not have the correct name");
+  STAssertEqualObjects([submachine machineIdentifier], @"testName2", @"The submachine does not have the correct identifier");
+  
+  [submachine release];
+  [machine release];
 }
 
-- (void)testMachineShouldBeAbleToRetriveSubmachinesByName {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  [machine addSubmachineWithName:@"testName2"];
+- (void)testMachineShouldBeAbleToRetriveSubmachinesByIdentifier {
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  CBMachine *submachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];
+  [machine addSubmachine:submachine];
   
-  CBMachine *submachine = [machine submachineWithName:@"testName2"];
+  CBMachine *testSubmachine = (CBMachine*)[machine submachineWithIdentifier:@"testName2"];
   
-  STAssertNotNil(submachine, @"The submachine is nil");
-  STAssertEqualObjects([submachine name], @"testName2", @"The submachine does not have the correct name");
+  STAssertNotNil(testSubmachine, @"The submachine is nil");
+  STAssertEqualObjects([testSubmachine machineIdentifier], @"testName2", @"The submachine does not have the correct identifier");
+
+  [submachine release];  
+  [machine release];
 }
 
-- (void)testMachineShouldReturnNilSubmachineIfTheSubmachineNameWithThatNameWasNeverAdded {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  [machine addSubmachineWithName:@"testName2"];
+- (void)testMachineShouldReturnNilSubmachineIfTheSubmachineWithThatIdentifierWasNeverAdded {
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   
-  CBMachine *submachine = [machine submachineWithName:@"invalidName"];
+  STAssertNil([machine submachineWithIdentifier:@"invalidName"], @"The submachine is not nil");
   
-  STAssertNil(submachine, @"The submachine is not nil");
+  [machine release];
 }
 
 - (void)testMachineShouldBeAbleToReportIfItContainsASubmachineOrNot {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  [machine addSubmachineWithName:@"testName2"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  CBMachine *addedSubmachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];
+  CBMachine *notAddedSubmachine = [[CBMachine alloc] initWithIdentifier:@"testName3"];
+
+  [machine addSubmachine:addedSubmachine];
   
-  STAssertTrue([machine containsSubmachineWithName:@"testName2"], @"The machine does not contain a submachine which was added");
-  STAssertFalse([machine containsSubmachineWithName:@"invalidName"], @"The machine contains a submachine which was not added");
+  STAssertTrue([machine containsSubmachine:addedSubmachine], @"The machine does not contain a submachine which was added");
+  STAssertFalse([machine containsSubmachine:notAddedSubmachine], @"The machine contains a submachine which was not added");
+  
+  [addedSubmachine release];
+  [notAddedSubmachine release];
+  [machine release];
 }
 
 - (void)testMachineShouldBeAbleToRemoveASubmachine {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  CBMachine *submachine = [machine addSubmachineWithName:@"testName2"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  CBMachine *submachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];;
+  [machine addSubmachine:submachine];
 
-  STAssertNotNil(submachine, @"The submachine is nil");
-  STAssertEqualObjects([submachine name], @"testName2", @"The submachine does not have the correct name");
+  STAssertTrue([machine containsSubmachine:submachine], @"The machine does not contain a submachine which was added");
   
-  [machine removeSubmachineWithName:@"testName2"];
-  submachine = [machine submachineWithName:@"testName2"];
+  [machine removeSubmachine:submachine];
   
   STAssertNil([submachine supermachine], @"The supermachine was not nil after being removed");
-  STAssertNil(submachine, @"The submachine was not nil after being removed");
+  STAssertFalse([machine containsSubmachine:submachine], @"The submachine was not nil after being removed");
+  
+  [machine release];
 }
 
 - (void)testSubmachineShouldBeAbleToRemoveItselfFromASupermachine {
-  CBMachine *machine = [CBMachine machineWithName:@"testName"];
-  CBMachine *submachine = [machine addSubmachineWithName:@"testName2"];
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  CBMachine *submachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];;
+  [machine addSubmachine:submachine];
 
-  STAssertNotNil(submachine, @"The submachine is nil");
-  STAssertEqualObjects([submachine name], @"testName2", @"The submachine does not have the correct name");
-  
+  STAssertTrue([machine containsSubmachine:submachine], @"The machine does not contain a submachine which was added");
+   
   [submachine removeFromSupermachine];
   
   STAssertNil([submachine supermachine], @"The supermachine was not nil after being removed");
-  STAssertNil([machine submachineWithName:@"testName2"], @"The machine still returns the submachine after it has been removed");
+  STAssertFalse([machine containsSubmachine:submachine], @"The machine still returns the submachine after it has been removed");
+
+  [machine release];
 }
 
 @end
