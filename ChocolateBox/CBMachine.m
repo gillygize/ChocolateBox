@@ -165,6 +165,14 @@
 }
 
 - (void)transitionToState:(NSString *)state {
+  for (id machineIdentifier in _machineDictionary) {
+    id<ChocolateBoxProtocol> machine = [self submachineWithIdentifier:machineIdentifier];
+    
+    if ([machine hasState:state]) {
+      [machine transitionToState:state];
+    }
+  }
+
   if ([state isEqualToString:_currentState]) {
     return;
   }
@@ -175,7 +183,10 @@
   CBState *nextStateObject = [_stateDictionary objectForKey:state];
 
   NSAssert(currentStateObject, @"Trying to transition from an unknown state");
-  NSAssert(nextStateObject, @"Trying to transition to an unknown state");
+
+  if (![self hasState:state]) {
+    return;
+  }
   
   NSAssert([currentStateObject canTransitionToState:state], @"Trying to make an invalid transition");
   
@@ -214,10 +225,19 @@
 
 @end
 
+#import <QuartzCore/QuartzCore.h>
 
 @implementation CBMachine (UIKit)
 
 - (void)transitionToState:(NSString *)state animated:(BOOL)animated duration:(NSTimeInterval)duration {
+  [CATransaction begin];
+
+  for (id<ChocolateBoxUIProtocol> machine in _machineDictionary) {
+    if ([machine hasState:state]) {
+      [machine transitionToState:state animated:animated duration:duration];
+    }
+  }
+
   NSAssert(self.currentState, @"Trying to transition but the current state is nil");
 
   CBState *currentStateObject = [self.stateDictionary objectForKey:self.currentState];
@@ -241,6 +261,8 @@
       nextStateObject.enter();
     }
   }
+  
+  [CATransaction commit];
 }
 
 @end

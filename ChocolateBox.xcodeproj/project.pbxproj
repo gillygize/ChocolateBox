@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00CFD9B14BEEC43008702EB /* ChocolateBoxProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9A14BEEC43008702EB /* ChocolateBoxProtocol.h */; settings = {ATTRIBUTES = (); }; };
-		C00CFD9F14BEECA9008702EB /* CBViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9D14BEECA9008702EB /* CBViewController.h */; settings = {ATTRIBUTES = (); }; };
+		C00CFD9B14BEEC43008702EB /* ChocolateBoxProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9A14BEEC43008702EB /* ChocolateBoxProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C00CFD9F14BEECA9008702EB /* CBViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9D14BEECA9008702EB /* CBViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C00CFDA014BEECA9008702EB /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CFD9E14BEECA9008702EB /* CBViewController.m */; };
 		C00CFDA614BEEEFB008702EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00CFDA514BEEEFB008702EB /* UIKit.framework */; };
 		C022B96A14BEFE740081ECD3 /* CBMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5BA14BD28FA008CE66F /* CBMachine.h */; settings = {ATTRIBUTES = (); }; };
@@ -23,7 +23,8 @@
 		C0B2E5D314BD28FA008CE66F /* CBStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5D214BD28FA008CE66F /* CBStateTests.m */; };
 		C0B2E5DE14BD295E008CE66F /* CBState.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5DC14BD295E008CE66F /* CBState.h */; settings = {ATTRIBUTES = (); }; };
 		C0B2E5DF14BD295E008CE66F /* CBState.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5DD14BD295E008CE66F /* CBState.m */; };
-		C97747C714D28BEE003D7C88 /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CFD9E14BEECA9008702EB /* CBViewController.m */; };
+		C992BDAB1570B49A00F2A3C5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C992BDAA1570B49A00F2A3C5 /* QuartzCore.framework */; };
+		C992BDDA1570BA9200F2A3C5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C992BDAA1570B49A00F2A3C5 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		C0B2E5D214BD28FA008CE66F /* CBStateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBStateTests.m; sourceTree = "<group>"; };
 		C0B2E5DC14BD295E008CE66F /* CBState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBState.h; sourceTree = "<group>"; };
 		C0B2E5DD14BD295E008CE66F /* CBState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBState.m; sourceTree = "<group>"; };
+		C992BDAA1570B49A00F2A3C5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			files = (
 				C00CFDA614BEEEFB008702EB /* UIKit.framework in Frameworks */,
 				C0B2E5B614BD28FA008CE66F /* Foundation.framework in Frameworks */,
+				C992BDAB1570B49A00F2A3C5 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C992BDDA1570BA9200F2A3C5 /* QuartzCore.framework in Frameworks */,
 				C022B96E14BF06750081ECD3 /* UIKit.framework in Frameworks */,
 				C0B2E5C414BD28FA008CE66F /* SenTestingKit.framework in Frameworks */,
 				C0B2E5C714BD28FA008CE66F /* Foundation.framework in Frameworks */,
@@ -102,6 +106,7 @@
 		C0B2E5B414BD28FA008CE66F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C992BDAA1570B49A00F2A3C5 /* QuartzCore.framework */,
 				C00CFDA514BEEEFB008702EB /* UIKit.framework */,
 				C0B2E5B514BD28FA008CE66F /* Foundation.framework */,
 				C0B2E5C314BD28FA008CE66F /* SenTestingKit.framework */,
@@ -274,7 +279,6 @@
 			files = (
 				C0B2E5D314BD28FA008CE66F /* CBStateTests.m in Sources */,
 				C0553B8D14BD8A82009FDA59 /* CBMachineTests.m in Sources */,
-				C97747C714D28BEE003D7C88 /* CBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +369,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(BUILT_PRODUCTS_DIR)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SKIP_INSTALL = YES;
 			};
@@ -386,7 +390,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(BUILT_PRODUCTS_DIR)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

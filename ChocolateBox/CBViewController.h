@@ -6,7 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CBMachine.h"
+#import <UIKit/UIKit.h>
+#import "ChocolateBoxProtocol.h"
 
 @interface CBViewController : UIViewController <ChocolateBoxUIProtocol>
 

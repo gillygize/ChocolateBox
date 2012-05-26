@@ -17,6 +17,7 @@
 		C089E3E814BEF87500AFF967 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = C089E3E614BEF87500AFF967 /* ViewController_iPhone.xib */; };
 		C089E3EB14BEF87500AFF967 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C089E3E914BEF87500AFF967 /* ViewController_iPad.xib */; };
 		C089E3F414BEF8BC00AFF967 /* libChocolateBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C089E3F314BEF8BC00AFF967 /* libChocolateBox.a */; };
+		C992BDD91570B9BB00F2A3C5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C992BDD81570B9BB00F2A3C5 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C089E3E714BEF87500AFF967 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		C089E3EA14BEF87500AFF967 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		C089E3F314BEF8BC00AFF967 /* libChocolateBox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChocolateBox.a; path = "../build/Release-iphoneos/libChocolateBox.a"; sourceTree = "<group>"; };
+		C992BDD81570B9BB00F2A3C5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 				C089E3D214BEF87500AFF967 /* UIKit.framework in Frameworks */,
 				C089E3D414BEF87500AFF967 /* Foundation.framework in Frameworks */,
 				C089E3D614BEF87500AFF967 /* CoreGraphics.framework in Frameworks */,
+				C992BDD91570B9BB00F2A3C5 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				C089E3F314BEF8BC00AFF967 /* libChocolateBox.a */,
+				C992BDD81570B9BB00F2A3C5 /* QuartzCore.framework */,
 				C089E3D114BEF87500AFF967 /* UIKit.framework */,
 				C089E3D314BEF87500AFF967 /* Foundation.framework */,
 				C089E3D514BEF87500AFF967 /* CoreGraphics.framework */,
@@ -131,7 +135,7 @@
 		C089E3C414BEF87500AFF967 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = C089E3C714BEF87500AFF967 /* Build configuration list for PBXProject "ChocolateBoxSampleApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -255,7 +259,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INFOPLIST_FILE = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,7 +274,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
 				INFOPLIST_FILE = "ChocolateBoxSampleApp/ChocolateBoxSampleApp-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

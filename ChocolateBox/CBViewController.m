@@ -7,6 +7,7 @@
 //
 
 #import "CBViewController.h"
+#import "CBMachine.h"
 
 @interface CBViewController()
 @property (nonatomic, retain) CBMachine *machine;

@@ -106,6 +106,17 @@
   [machine release];
 }
 
+- (void)testMachineShouldDoNothingIfItIsAskedToTransitionToAnUnknownState {
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  [machine addState:@"firstState" enter:nil exit:nil];
+  [machine addState:@"secondState" enter:nil exit:nil];
+  [machine enterInitialState];
+  
+  STAssertNoThrow([machine transitionToState:@"unknownState"], @"Machine threw an exception when asked to transition to an unknown state");
+  
+  [machine release];
+}
+
 - (void)testMachineShouldSuccessfullyCallTheTransitionBlock {
   CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   [machine addState:@"firstState"
@@ -280,6 +291,28 @@
   STAssertNil([submachine supermachine], @"The supermachine was not nil after being removed");
   STAssertFalse([machine containsSubmachine:submachine], @"The machine still returns the submachine after it has been removed");
 
+  [machine release];
+}
+
+- (void)testMachineShouldForwardTransitionSignalsToItsSubmachines {
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  CBMachine *submachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];
+  
+  [machine addState:@"unusedState"
+    enter:nil
+    exit:nil];
+  
+  [submachine addState:@"initialState" enter:nil exit:nil];
+  [submachine addState:@"testState" enter:^{
+    STAssertTrue(YES, @"The submachine received the transition signal from its supermachine");
+    }
+    exit:nil];
+    
+  [machine addSubmachine:submachine];
+  [submachine enterInitialState];
+  [submachine release];
+  
+  [machine transitionToState:@"testState"];
   [machine release];
 }
 
