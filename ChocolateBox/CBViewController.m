@@ -8,7 +8,12 @@
 
 #import "CBViewController.h"
 
+@interface CBViewController()
+@property (nonatomic, retain) CBMachine *machine;
+@end
+
 @implementation CBViewController
+@synthesize machine;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

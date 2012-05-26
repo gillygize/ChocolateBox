@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00CFD9B14BEEC43008702EB /* ChocolateBoxProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9A14BEEC43008702EB /* ChocolateBoxProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C00CFD9F14BEECA9008702EB /* CBViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9D14BEECA9008702EB /* CBViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C00CFD9B14BEEC43008702EB /* ChocolateBoxProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9A14BEEC43008702EB /* ChocolateBoxProtocol.h */; settings = {ATTRIBUTES = (); }; };
+		C00CFD9F14BEECA9008702EB /* CBViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C00CFD9D14BEECA9008702EB /* CBViewController.h */; settings = {ATTRIBUTES = (); }; };
 		C00CFDA014BEECA9008702EB /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CFD9E14BEECA9008702EB /* CBViewController.m */; };
 		C00CFDA614BEEEFB008702EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00CFDA514BEEEFB008702EB /* UIKit.framework */; };
-		C022B96A14BEFE740081ECD3 /* CBMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5BA14BD28FA008CE66F /* CBMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C022B96A14BEFE740081ECD3 /* CBMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5BA14BD28FA008CE66F /* CBMachine.h */; settings = {ATTRIBUTES = (); }; };
 		C022B96D14BF06580081ECD3 /* libChocolateBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B214BD28FA008CE66F /* libChocolateBox.a */; };
 		C022B96E14BF06750081ECD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00CFDA514BEEEFB008702EB /* UIKit.framework */; };
 		C0553B8D14BD8A82009FDA59 /* CBMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0553B8A14BD8A74009FDA59 /* CBMachineTests.m */; };
@@ -21,8 +21,9 @@
 		C0B2E5C714BD28FA008CE66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B2E5B514BD28FA008CE66F /* Foundation.framework */; };
 		C0B2E5D014BD28FA008CE66F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0B2E5CE14BD28FA008CE66F /* InfoPlist.strings */; };
 		C0B2E5D314BD28FA008CE66F /* CBStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5D214BD28FA008CE66F /* CBStateTests.m */; };
-		C0B2E5DE14BD295E008CE66F /* CBState.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5DC14BD295E008CE66F /* CBState.h */; };
+		C0B2E5DE14BD295E008CE66F /* CBState.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B2E5DC14BD295E008CE66F /* CBState.h */; settings = {ATTRIBUTES = (); }; };
 		C0B2E5DF14BD295E008CE66F /* CBState.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B2E5DD14BD295E008CE66F /* CBState.m */; };
+		C97747C714D28BEE003D7C88 /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CFD9E14BEECA9008702EB /* CBViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,7 +210,7 @@
 		C0B2E5A914BD28FA008CE66F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = C0B2E5AC14BD28FA008CE66F /* Build configuration list for PBXProject "ChocolateBox" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -273,6 +274,7 @@
 			files = (
 				C0B2E5D314BD28FA008CE66F /* CBStateTests.m in Sources */,
 				C0553B8D14BD8A82009FDA59 /* CBMachineTests.m in Sources */,
+				C97747C714D28BEE003D7C88 /* CBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +318,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PUBLIC_HEADERS_FOLDER_PATH = "${TARGET_NAME}";
@@ -336,6 +339,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PUBLIC_HEADERS_FOLDER_PATH = "${TARGET_NAME}";
@@ -349,11 +353,20 @@
 		C0B2E5D714BD28FA008CE66F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				DSTROOT = /tmp/ChocolateBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChocolateBox/ChocolateBox-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -361,11 +374,19 @@
 		C0B2E5D814BD28FA008CE66F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				DSTROOT = /tmp/ChocolateBox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChocolateBox/ChocolateBox-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

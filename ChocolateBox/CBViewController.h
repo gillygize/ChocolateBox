@@ -8,9 +8,6 @@
 
 #import "CBMachine.h"
 
-@interface CBViewController : UIViewController <ChocolateBoxUIProtocol> {
-@private
-  CBMachine *machine;
-}
+@interface CBViewController : UIViewController <ChocolateBoxUIProtocol>
 
 @end
