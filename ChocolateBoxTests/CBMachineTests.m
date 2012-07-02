@@ -294,6 +294,15 @@
   [machine release];
 }
 
+- (void)testMachineShouldBeAbleToReturnAListOfAllOfTheSubmachines {
+  CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
+  CBMachine *submachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];
+  [machine addSubmachine:submachine];
+    
+  STAssertEquals([[machine submachines] count], (NSUInteger) 1, @"Machine does not have one submachine");
+  STAssertEqualObjects([[machine submachines] anyObject], submachine, @"Machines object is not the submachine");
+}
+
 - (void)testMachineShouldForwardTransitionSignalsToItsSubmachines {
   CBMachine *machine = [[CBMachine alloc] initWithIdentifier:@"testName"];
   CBMachine *submachine = [[CBMachine alloc] initWithIdentifier:@"testName2"];

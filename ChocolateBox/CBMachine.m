@@ -92,6 +92,10 @@
   [_supermachine removeSubmachine:self];
 }
 
+- (NSSet *)submachines {
+  return [NSSet setWithArray:[_machineDictionary allValues]];
+}
+
 - (BOOL)containsSubmachineWithIdentifier:(NSString*)identifier {
   return ([self submachineWithIdentifier:identifier] != nil);
 }
@@ -165,13 +169,7 @@
 }
 
 - (void)transitionToState:(NSString *)state {
-  for (id machineIdentifier in _machineDictionary) {
-    id<ChocolateBoxProtocol> machine = [self submachineWithIdentifier:machineIdentifier];
-    
-    if ([machine hasState:state]) {
-      [machine transitionToState:state];
-    }
-  }
+  [[self submachines] makeObjectsPerformSelector:@selector(transitionToState:) withObject:state];
 
   if ([state isEqualToString:_currentState]) {
     return;
@@ -202,7 +200,8 @@
   
   if (nextStateObject.enter) {
     nextStateObject.enter();
-  }  
+  }
+  
 }
 
 - (void)revalidateTransitionFromState:(NSString *)fromState toState:(NSString *)toState {
@@ -232,7 +231,9 @@
 - (void)transitionToState:(NSString *)state animated:(BOOL)animated duration:(NSTimeInterval)duration {
   [CATransaction begin];
 
-  for (id<ChocolateBoxUIProtocol> machine in _machineDictionary) {
+  for (id machineIdentifier in _machineDictionary) {
+    id<ChocolateBoxUIProtocol> machine = (id<ChocolateBoxUIProtocol>)[self submachineWithIdentifier:machineIdentifier];
+
     if ([machine hasState:state]) {
       [machine transitionToState:state animated:animated duration:duration];
     }

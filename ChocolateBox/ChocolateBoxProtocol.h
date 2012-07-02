@@ -19,6 +19,7 @@
 - (void)removeFromSupermachine;
 - (BOOL)containsSubmachine:(id)identifer;
 - (void)removeSubmachine:(id)identifier;
+- (NSSet*)submachines;
 - (id)machineIdentifier;
 
 - (void)setInitialState:(NSString *)initialState;
