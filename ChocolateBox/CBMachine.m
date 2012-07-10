@@ -45,6 +45,8 @@
 }
 
 - (void)dealloc {
+  [[_machineDictionary allValues] makeObjectsPerformSelector:@selector(removeFromSupermachine)];
+
   [_machineDictionary release];
   [_stateDictionary release];
   [_machineIdentifier release];
